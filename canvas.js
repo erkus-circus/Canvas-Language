@@ -2,8 +2,8 @@
  * In between line whitespace does not let some things compile.
  */
 
- if (!require) {
-     require = function () {  };
+ if (typeof require === "undefined") {
+     var require = function () {  };
  }
  
 const fs = require('fs');
