@@ -2,16 +2,29 @@
  * In between line whitespace does not let some things compile.
  */
 
-const fs = require('fs')
+ if (!require) {
+     require = function () {  };
+ }
+ 
+const fs = require('fs');
 
 const len = (a) => a.length; 
 const UID = () => '_' + Math.random().toString(36).substr(2, 9);
 
-var argv = process.argv,
+var argv = process.argv || 0,
     index = 'ikjhnhnbubuyhbuy',
     ends = '';
 
-
+function initWeb() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            index = JSON.parse(this.responseText);
+        }
+    };
+    xhttp.open("GET", "https://raw.githubusercontent.com/erkus-circus/Canvas-Language/master/assemblecoms.json", true);
+    xhttp.send();
+}
 
 function parseAsm(line, lnum) {
     line = line.replace(/\s/,'');
