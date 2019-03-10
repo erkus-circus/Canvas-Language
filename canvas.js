@@ -1,14 +1,14 @@
 /***
  * In between line whitespace does not let some things compile.
  */
+global.window = global;
+if (!(require in window)) {
+    var require = function () { };
+}
 
- if (typeof require === "undefined") {
-     var require = function () {  };
- }
- 
 const fs = require('fs');
 
-const len = (a) => a.length; 
+const len = (a) => a.length;
 const UID = () => '_' + Math.random().toString(36).substr(2, 9);
 
 var argv = process.argv || 0,
@@ -27,19 +27,19 @@ function initWeb() {
 }
 
 function parseAsm(line, lnum) {
-    line = line.replace(/\s/,'');
-    
-    
+    line = line.replace(/\s/, '');
+
+
     var commaseps = line.split(','),
         compiledLine = '';
-    
+
     for (let i = 0; i < commaseps.length; i++) {
         commaseps[i] = commaseps[i].replace(/\s/, '');
     }
-    
+
     for (const cmd in index.cmds) {
-        
-        
+
+
         if (commaseps[0] == cmd) {
             // if speacial cmds
             if (commaseps[0] == '_end') {
@@ -60,8 +60,8 @@ function parseAsm(line, lnum) {
                 ends = ends.replace('$' + (i - 1), arg);
             }
 
-            
-            return compiledLine +'\n';
+
+            return compiledLine + '\n';
         }
     }
 
@@ -74,7 +74,7 @@ function assemble(dat) {
     var lines = dat.split(';');
     for (let i = 0; i < len(lines); i++) {
         var l = lines[i];
-        if (l.replace(/\s/,'') == "") {
+        if (l.replace(/\s/, '') == "") {
             continue;
         }
         compiled += parseAsm(l);
@@ -82,7 +82,7 @@ function assemble(dat) {
     return compiled;
 }
 if (module && module.exports) {
-    
+
     if (len(argv) < 3) {
         exports = module.exports = assemble;
     } else {
@@ -90,16 +90,16 @@ if (module && module.exports) {
             if (err) {
                 console.error(err);
             }
-            
+
             index = JSON.parse(dat);
             fs.readFile(argv[2], "utf8", function (err, dat) {
-                
+
                 if (err) {
                     console.error(err);
                 }
                 var asm = assemble(dat)
                 console.log(asm)
-                fs.writeFile(argv[2]+".html", asm)
+                fs.writeFile(argv[2] + ".html", asm)
             });
         });
     }
