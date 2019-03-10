@@ -1,0 +1,11 @@
+{
+  "name": "canvas-lib",
+  "version": "0.1.6",
+  "description": "An assembly like language for HTML5 Canvas",
+  "main": "canvas.js",
+  "scripts": {
+    "test": "canvas.js image.canvas"
+  },
+  "author": "Eric Diskin",
+  "license": "ISC"
+}

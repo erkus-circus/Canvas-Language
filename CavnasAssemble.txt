@@ -1,0 +1,127 @@
+Reference: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+
+Use: Command, Args, ~ Comment
+~ not case sensitive
+
+
+Example:
+`
+bpath
+mov 50, 50
+lto 30, 30
+lto 50, 50
+cpath
+`
+
+
+C: Canvas.getContext `2d` ~ the rendering canvas obj
+
+
+
+bpath: C.beginPath();*
+
+cpath: C.closePath();*
+
+fill: C.fill();*
+
+str: C.stroke();*
+
+mov, x, y: C.moveTo(x,y)*
+
+lto, x, y: C.lineTo(x,y)
+
+shape, x, y, x1, y1, ... : C.moveTo(x,y); C.lineTo(x1,y1); C.lineTo(x2,y2); ...; C.lineTo(x,y);
+
+clr: C.clearRect(0,0,WIDTH,HEIGHT);
+
+clr, x, y, x1, y1: C.clearRect(x,y,x1,y1);
+
+frect: C.fillRect(0,0,WIDTH,HEIGHT);
+
+frect x,y, x1, y1: C.fillRect(x,y,x1,y1);
+
+srect: C.strokeRect(0,0,WIDTH,HEIGHT);
+
+srect x,y, x1, y1: C.strokeRect(x,y,x1,y1);
+
+fnt, font: C.font = font;
+
+ftxt, x, y text: C.fillText(text);
+
+ftxt, x, y text, mwidth: C.fillText(text, x, y, mwidth or NULL);
+
+stxt, x, y, text: C.strokeText(text);
+
+stxt, x, y text, mwidth: C.strokeText(text, x, y, mwidth or NULL);
+
+mtxt, txt: return C.measureText(txt);
+
+lwdth, width: C.lineWidth = width;
+
+lcap, cap: C.lineCap = cap;
+
+lcap: return C.lineCap;
+
+ljoin, join: C.lineJoin = join;
+
+mlt, miterLimit: C.miterLimit = miterLimit;
+
+mlt: return C.miterLimit;
+
+ldsh: return C.getLineDash();
+
+ldsh, ld: C.setLineDash(ld)
+
+ldshofs: return C.lineDashOffset;
+
+ldshofs, a: C.lineDashOffset = a;
+
+txtaln: return C.textAlign;
+
+txtaln, a: C.textAlign = a;
+
+tbl: return C.textbaseLine;
+
+tbl, a: C.textbaseLine = a;
+
+direct: return C.direction;
+
+direct, a: C.direction = a
+
+fstl: return C.fillStyle;
+
+fstl: return C.fillStyle;
+
+fstl, a: C.fillStyle = a;
+
+ststl: return C.strokeStyle;
+
+stfstl, a: C.strokeStyle = a;
+
+lgrad x, y, x1, y2, poses, colors: pos, color, ...: return C.createLinearGradient(x,y,x1,y1); for pos, color in poses, colors: GRADIENT.addColorStop(pos, color);
+
+radgrad, x, y, r, x1, y1, r1, (poses, colors: pos, color): return C.createRadialGradient(x, y, r, x1, y1, r1); for pos, color in poses, colors: GRADIENT.addColorStop(pos, color);
+
+pat, img, repeat: return C.createPattern(img, repeat);
+
++cstop, grad, i, color: grad.addColorStop(i, color);
+
+showblr: return C.shadowBlur;
+
+showblr, blur: C.shadowBlur = blur;
+
+showclr: return C.shadowColor;
+
+showclr, color: C.shadowColor = color; 
+
+showofx: return C.shadowOffsetX;
+
+showofx, a: C.shadowOffsetX = a;
+
+showofy: return C.shadowOffsetY;
+
+showofy, a: C.shadowOffsetY = a;
+
+bezcurv, cpx, cpy, cp1x, cp1y, x, y: c.bezierCurveTo(cpx, cpy, cp1x, cp1y, x, y)
+
+arc, x, y, r, st, ea, anticlock: C.arc(x, y, r, st, ea, anticlock);

@@ -1,0 +1,74 @@
+{
+    "cmds": {
+        "pts": {
+            "compile": "c.beginPath();"
+        },
+        "pte": {
+            "compile": "c.closePath();"
+        },
+        "max": {
+            "compile":"for(var i = 0;i<$0+1;i++){window[\"$\"+i]=undefined;}"
+        },
+        "fill": {
+            "compile": "c.fill();"
+        },
+        "stk": {
+            "compile": "c.stroke();"
+        },
+        "mov": {
+            "compile":"c.moveTo($0,$1);"
+        },
+        "lto": {
+            "compile":"c.lineTo($0,$1);"
+        },
+        "w": {
+            "compile": "ca.width=$0;"
+        },
+        "h": {
+            "compile": "ca.height=$0;"
+        },
+        "img":{
+            "compile":"c.drawImage($0,$1,$2,$3,$4,$5,$6);"
+        },
+        "preload":{
+            "compile":"var $0=new Image();$0.src=\"$1\";"
+        },
+        "preloadtrkr_start":{
+            "compile":"var _PLtrk=[];"
+        },
+        "track_preload": {
+            "compile":"if(!\"$0\" in _PLtrk){_PLtrk.push($0);var $1=new Image();$1.src=\"$0\";}"
+        },
+        "$": {
+            "compile":"var $0=$1;"
+        },
+        "clr": {
+            "compile":"c.clearRect(0,0,window.innerWidth,window.innerHeight);"
+        },
+        "zoom": {
+            "compile": "ca.style.width=$0+\"px\";ca.style.height=$1+\"px\";"
+        },
+        "rest":{
+            "compile":"r();"
+        },
+        "_start{": {
+            "compile":"<!-- Canvas Assembly V.1.6 -->\n<canvas id=\"c\"></canvas><script>var ca=document.getElementById('c'),c=ca.getContext('2d');(function r(){"
+        },
+        "_end": {
+            "compile":"})();</script>"
+        },
+        "_call": {
+            "compile":"$0();"
+        },
+        
+        "_func": {
+            "compile":"function $0(){"
+        },
+        "_func_end":{
+            "compile":"}"
+        },
+        "wait_end": {
+            "compile":"},$0);"
+        }
+    }
+}
