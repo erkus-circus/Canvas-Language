@@ -51,7 +51,7 @@
         "rest":{
             "compile":"r();"
         },
-        "_start{": {
+        "_start": {
             "compile":"<!-- Canvas Assembly V.1.6 -->\n<canvas id=\"c\"></canvas><script>var ca=document.getElementById('c'),c=ca.getContext('2d');(function r(){"
         },
         "_end": {
@@ -66,9 +66,6 @@
         },
         "_func_end":{
             "compile":"}"
-        },
-        "wait_end": {
-            "compile":"},$0);"
         }
     }
 }
