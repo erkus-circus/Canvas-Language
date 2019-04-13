@@ -15,7 +15,7 @@ function initWeb() {
             index = JSON.parse(this.responseText);
         }
     };
-    xhttp.open("GET", "./assemblecoms.json", true);
+    xhttp.open("GET", "https://erkus-circus.github.io/Canvas-Language/assemblecoms.json", true);
     xhttp.send();
 }
 
