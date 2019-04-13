@@ -1,18 +1,11 @@
 /***
  * In between line whitespace does not let some things compile.
  */
-global.window = global;
-if (!(require in window)) {
-    var require = function () { };
-}
-
-const fs = require('fs');
-
+//commit
 const len = (a) => a.length;
 const UID = () => '_' + Math.random().toString(36).substr(2, 9);
 
-var argv = process.argv || 0,
-    index = 'ikjhnhnbubuyhbuy',
+var index = 'ikjhnhnbubuyhbuy',
     ends = '';
 
 function initWeb() {
@@ -22,7 +15,7 @@ function initWeb() {
             index = JSON.parse(this.responseText);
         }
     };
-    xhttp.open("GET", "https://raw.githubusercontent.com/erkus-circus/Canvas-Language/master/assemblecoms.json", true);
+    xhttp.open("GET", "https://erkus-circus.github.io/Canvas-Language/assemblecoms.json", true);
     xhttp.send();
 }
 
@@ -80,27 +73,4 @@ function assemble(dat) {
         compiled += parseAsm(l);
     }
     return compiled;
-}
-if (module && module.exports) {
-
-    if (len(argv) < 3) {
-        exports = module.exports = assemble;
-    } else {
-        fs.readFile(__dirname + '/assemblecoms.json', "utf8", (err, dat) => {
-            if (err) {
-                console.error(err);
-            }
-
-            index = JSON.parse(dat);
-            fs.readFile(argv[2], "utf8", function (err, dat) {
-
-                if (err) {
-                    console.error(err);
-                }
-                var asm = assemble(dat)
-                console.log(asm)
-                fs.writeFile(argv[2] + ".html", asm)
-            });
-        });
-    }
 }
