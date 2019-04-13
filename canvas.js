@@ -4,8 +4,7 @@
 const len = (a) => a.length;
 const UID = () => '_' + Math.random().toString(36).substr(2, 9);
 
-var argv = process.argv || 0,
-    index = 'ikjhnhnbubuyhbuy',
+var index = 'ikjhnhnbubuyhbuy',
     ends = '';
 
 function initWeb() {
