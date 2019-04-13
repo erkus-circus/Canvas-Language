@@ -1,34 +1,34 @@
 {
     "cmds": {
         "pts": {
-            "compile": "c.beginPath();"
+            "compile": "_c.beginPath();"
         },
         "pte": {
-            "compile": "c.closePath();"
+            "compile": "_c.closePath();"
         },
         "max": {
             "compile":"for(var i = 0;i<$0+1;i++){window[\"$\"+i]=undefined;}"
         },
         "fill": {
-            "compile": "c.fill();"
+            "compile": "_c.fill();"
         },
         "stk": {
-            "compile": "c.stroke();"
+            "compile": "_c.stroke();"
         },
         "mov": {
-            "compile":"c.moveTo($0,$1);"
+            "compile":"_c.moveTo($0,$1);"
         },
         "lto": {
-            "compile":"c.lineTo($0,$1);"
+            "compile":"_c.lineTo($0,$1);"
         },
         "w": {
-            "compile": "ca.width=$0;"
+            "compile": "_ca.width=$0;"
         },
         "h": {
-            "compile": "ca.height=$0;"
+            "compile": "_ca.height=$0;"
         },
         "img":{
-            "compile":"c.drawImage($0,$1,$2,$3,$4,$5,$6);"
+            "compile":"_c.drawImage($0,$1,$2,$3,$4,$5,$6);"
         },
         "preload":{
             "compile":"var $0=new Image();$0.src=\"$1\";"
@@ -43,22 +43,25 @@
             "compile":"var $0=$1;"
         },
         "clr": {
-            "compile":"c.clearRect(0,0,window.innerWidth,window.innerHeight);"
+            "compile":"_c.clearRect(0,0,window.innerWidth,window.innerHeight);"
         },
         "zoom": {
-            "compile": "ca.style.width=$0+\"px\";ca.style.height=$1+\"px\";"
+            "compile": "_ca.style.width=$0+\"px\";_ca.style.height=$1+\"px\";"
         },
         "reset":{
             "compile":"r();"
         },
         "_start": {
-            "compile":"<!-- Canvas Assembly V.1.7 -->\n<canvas id=\"c\"></canvas><script>var ca=document.getElementById('c'),c=ca.getContext('2d');(function r(){"
+            "compile":"<!-- Canvas Assembly V.1.7 -->\n<canvas id=\"c\"></canvas><script>var _ca=document.getElementById('c'),_c=_ca.getContext('2d');(function r(){"
         },
         "_start_contxt": {
-            "compile": "/*Canvas Assembly V.1.7*/var ca=document.getElementById($0),c=ca.getContext('2d');(function r(){"
+            "compile": "/*Canvas Assembly V.1.7*/var _ca=document.getElementById($0),_c=_ca.getContext('2d');(function r(){"
         },
         "_end": {
             "compile":"})();</script>"
+        },
+        "_end_contxt": {
+            "compile":"})();"
         },
         "_call": {
             "compile":"$0();"
