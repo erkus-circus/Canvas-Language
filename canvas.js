@@ -8,7 +8,7 @@ const UID = () => '_' + Math.random().toString(36).substr(2, 9);
 var index = 'ikjhnhnbubuyhbuy',
     ends = '';
 
-!function initWeb() {
+(function() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -17,7 +17,7 @@ var index = 'ikjhnhnbubuyhbuy',
     };
     xhttp.open("GET", "https://erkus-circus.github.io/Canvas-Language/assemblecoms.json", true);
     xhttp.send();
-}();
+})();
 
 function parseAsm(line, lnum) {
     line = line.replace(/\s/, '');
