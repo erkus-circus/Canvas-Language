@@ -6,6 +6,9 @@
         "pte": {
             "compile": "_c.closePath();"
         },
+        "gcompos": {
+            "compile":"_c.globalCompositeOperation=$0;"
+        },
         "max": {
             "compile":"for(var i = 0;i<$0+1;i++){window[\"$\"+i]=undefined;}"
         },
@@ -43,7 +46,7 @@
             "compile":"var $0=$1;"
         },
         "clr": {
-            "compile":"_c.clearRect(0,0,window.innerWidth,window.innerHeight);"
+            "compile":"_c.clearRect(0,0,_ca.width,_ca.height);"
         },
         "zoom": {
             "compile": "_ca.style.width=$0+\"px\";_ca.style.height=$1+\"px\";"

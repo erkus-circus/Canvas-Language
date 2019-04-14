@@ -74,3 +74,7 @@ function assemble(dat) {
     }
     return compiled;
 }
+
+function exec(toAssemble) {
+    return Function(assemble(toAssemble))();
+}
