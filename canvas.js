@@ -62,7 +62,7 @@ function parseAsm(line, lnum) {
 
 function assemble(dat) {
     if (index == "not loaded") {
-        setTimeout(() => {
+        return setTimeout(() => {
             return assemble(dat);
         }, 10);
     }
