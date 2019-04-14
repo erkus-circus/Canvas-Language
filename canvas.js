@@ -1,14 +1,12 @@
 /***
  * In between line whitespace does not let some things compile.
  */
-//commit
 const len = (a) => a.length;
 const UID = () => '_' + Math.random().toString(36).substr(2, 9);
 
-var index = 'ikjhnhnbubuyhbuy',
+var index = 'not loaded',
     ends = '';
-
-(function() {
+(function INIT_W() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -63,6 +61,11 @@ function parseAsm(line, lnum) {
 
 
 function assemble(dat) {
+    if (index == "not loaded") {
+        setTimeout(() => {
+            return assemble(dat);
+        }, 10);
+    }
     var compiled = ""
     var lines = dat.split(';');
     for (let i = 0; i < len(lines); i++) {
@@ -76,5 +79,5 @@ function assemble(dat) {
 }
 
 function exec(toAssemble) {
-    return Function(assemble(toAssemble))();
+    return new Function(assemble(toAssemble))();
 }
