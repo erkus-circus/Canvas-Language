@@ -24,6 +24,12 @@
         "lto": {
             "compile":"_c.lineTo($0,$1);"
         },
+        "arc": {
+            "compile": "_c.arc($0,$1,$2,$3,$4);"
+        },
+        "circle": {
+            "compile": "_c.arc($0,$1,$2,0,Math.PI*2);"
+        },
         "w": {
             "compile": "_ca.width=$0;"
         },
