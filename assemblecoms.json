@@ -55,13 +55,13 @@
             "compile":"r();"
         },
         "_start": {
-            "compile":"document.body.innerHTML += \"<!-- Canvas Assembly V.1.7 -->\n<canvas id=\"c\"></canvas><script>var _ca=document.getElementById('c'),_c=_ca.getContext('2d');(function r(){"
+            "compile":"document.body.innerHTML += `<!-- Canvas Assembly V.1.7 -->\n<canvas id=\"c\"></canvas><script>var _ca=document.getElementById('c'),_c=_ca.getContext('2d');(function r(){"
         },
         "_start_contxt": {
             "compile": "/*Canvas Assembly V.1.7*/var _ca=document.getElementById($0),_c=_ca.getContext('2d');(function r(){"
         },
         "_end": {
-            "compile":"})();</script>\""
+            "compile":"})();</script>`"
         },
         "_end_contxt": {
             "compile":"})();"
