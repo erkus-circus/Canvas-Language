@@ -84,3 +84,7 @@ function assemble(dat) {
 function exec(toAssemble) {
     return new Function(assemble(toAssemble))();
 }
+
+function hexec(toAssemble) {
+
+}
