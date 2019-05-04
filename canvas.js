@@ -3,6 +3,7 @@
  */
 const len = (a) => a.length;
 const UID = () => '_' + Math.random().toString(36).substr(2, 9);
+window.oncanvlibready = function () {};
 
 var index = 'not loaded',
     ends = '';
@@ -11,6 +12,7 @@ var index = 'not loaded',
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             index = JSON.parse(this.responseText);
+            window.oncanvlibready()
         }
     };
     xhttp.open("GET", "https://erkus-circus.github.io/Canvas-Language/assemblecoms.json", true);
