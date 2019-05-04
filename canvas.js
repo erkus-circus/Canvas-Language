@@ -55,7 +55,7 @@ function parseAsm(line, lnum) {
             }
 
 
-            return compiledLine + '\n';
+            return compiledLine;
         }
     }
 
