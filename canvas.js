@@ -11,7 +11,9 @@ var index = 'not loaded',
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             index = JSON.parse(this.responseText);
-            window.oncanvlibready();
+            if (typeof oncanvlibready === "function" ) {
+                window.oncanvlibready();
+            }
         }
     };
     xhttp.open("GET", "https://erkus-circus.github.io/Canvas-Language/assemblecoms.json", true);
