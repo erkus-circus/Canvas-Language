@@ -3,9 +3,6 @@
  */
 const len = (a) => a.length;
 const UID = () => '_' + Math.random().toString(36).substr(2, 9);
-window.oncanvlibready = function () {
-    alert(145)
-};
 
 var index = 'not loaded',
     ends = '';
