@@ -3,16 +3,18 @@
  */
 const len = (a) => a.length;
 const UID = () => '_' + Math.random().toString(36).substr(2, 9);
-window.oncanvlibready = function () {};
+window.oncanvlibready = function () {
+    alert(145)
+};
 
 var index = 'not loaded',
     ends = '';
-(function INIT_W() {
+(function () {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             index = JSON.parse(this.responseText);
-            window.oncanvlibready()
+            window.oncanvlibready();
         }
     };
     xhttp.open("GET", "https://erkus-circus.github.io/Canvas-Language/assemblecoms.json", true);
